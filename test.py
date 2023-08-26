@@ -1,3 +1,2 @@
 import constants
-import func
-print(func.playerOnline())
+print(constants.token)

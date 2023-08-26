@@ -5,6 +5,8 @@ import asyncio
 from discord.ext import tasks, commands
 from discord.ext.commands import Bot
 from discord.ext.commands import Context
+from dotenv import load_dotenv
+
 import func
 async def send_message(message, user_message, is_private):
     try:
