@@ -3,9 +3,9 @@ import constants as C
 import json
 def playerOnline():
     data = req.get(C.api_prefix+C.site)
-    # with open("data.txt", "w") as writer:
-    #     writer.write(data.text)
-    #     writer.close()
+    with open("data.txt", "w") as writer:
+        writer.write(data.text)
+        writer.close()
 
     test_data = json.loads(data.text)
     # print(type(test_data))
@@ -38,3 +38,17 @@ def playerOnline():
     ```
     """
     return output
+def playerOnlineCounter():
+    data = req.get(C.api_prefix+C.site)
+    # with open("data.txt", "w") as writer:
+    #     writer.write(data.text)
+    #     writer.close()
+
+    test_data = json.loads(data.text)
+    # print(type(test_data))
+
+    total_online_players = test_data["players"]["online"]
+    max_player = test_data["players"]["max"]
+    total_number = str(total_online_players)+"/"+str(max_player)
+ 
+    return total_number
