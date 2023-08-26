@@ -8,7 +8,7 @@ def playerOnline():
     #     writer.close()
 
     test_data = json.loads(data.text)
-    print(type(test_data))
+    # print(type(test_data))
 
     total_online_players = test_data["players"]["online"]
     total_number = total_online_players
@@ -21,8 +21,8 @@ def playerOnline():
         counter = 0
         player_list = []
         for i in total_online_players:
-            print(i["name"])
-            player_list.append(i["name"])
+            print(i["name_raw"])
+            player_list.append(i["name_raw"])
         players_data = ",".join(player_list)
         total_number = len(player_list)
         
