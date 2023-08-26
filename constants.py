@@ -9,3 +9,4 @@ site = open("site.txt", "r").read()
 with open("log.txt", "w") as logger:
     logger.write(api_prefix+site)
     logger.close()
+command_prefix = "-"

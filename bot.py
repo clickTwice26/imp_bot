@@ -33,8 +33,8 @@ def run_discord_bot():
         username = str(message.author)
         user_message = str(message.content)
         channel = str(message.channel)
-        print(f"{username} said {user_message} {channel}")
-        if user_message[0] == "-":
+        # print(f"{username} said {user_message} {channel}")
+        if user_message[0] == constants.command_prefix:
             user_message = user_message[1:]
             await send_message(message, user_message, is_private=False)
         else:
@@ -45,5 +45,5 @@ def run_discord_bot():
         await client.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.watching, name=str(func.playerOnlineCounter())+" Players"))
         await client.change_presence(status=discord.Status.online, activity=discord.Game(f"on {constants.site}"))
 
-        await asyncio.sleep(2)
+        await asyncio.sleep(1)
     client.run(TOKEN)
