@@ -3,9 +3,9 @@ import constants as C
 import json
 def playerOnline():
     data = req.get(C.api_prefix+C.site)
-    with open("data.txt", "w") as writer:
-        writer.write(data.text)
-        writer.close()
+    # with open("data.txt", "w") as writer:
+    #     writer.write(data.text)
+    #     writer.close()
 
     test_data = json.loads(data.text)
     # print(type(test_data))
