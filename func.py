@@ -3,6 +3,7 @@ import constants as C
 import json
 import sys
 from datetime import datetime
+from dotenv import dotenv_values
 
 def line_prepender(filename, string):
     with open(filename, 'r+') as f:
@@ -12,6 +13,8 @@ def line_prepender(filename, string):
 def debug(comment, active="false"):
     if active not in ["true","false"]:
         print("[+] Debug prompt not successful")
+    elif C.debug is False:
+        pass
     elif active == "false":
         # print("")
         pass
@@ -96,3 +99,21 @@ def playerOnlineCounter():
     total_number = str(total_online_players)+"/"+str(max_player)
  
     return total_number
+def firsttimetokenchecker():
+
+    token = dotenv_values(".env")["TOKEN"]
+    # print(str(token))
+    if token == "":
+        print("[+] No Token Found")
+        debug("Token Not found", "true")
+        token = input("[+] Add your token: ")
+        try:
+            with open(".env", "w") as tokenwriter:
+                tokenwriter.write(f"TOKEN = {token}")
+                tokenwriter.close()
+        except:
+            debug("Token Not found", "true")
+
+            sys.exit()
+    else:
+        print("[+]Token Found")
