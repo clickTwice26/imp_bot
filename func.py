@@ -117,3 +117,23 @@ def firsttimetokenchecker():
             sys.exit()
     else:
         print("[+]Token Found")
+def sitechecker():
+    try:
+        data = open("site.txt", "r").read()
+        if data == "":
+            print("[+] no site found")
+            site = input("[+] Please enter your target site: ")
+            with open("site.txt", "w") as sitewriter:
+                sitewriter.write(site)
+                sitewriter.close()
+        else:
+            pass        
+    except FileNotFoundError:
+        print("[+] site.txt file not found ")
+        site = input("[+] Please enter your target site: ")
+        with open("site.txt", "w") as sitewriter:
+            sitewriter.write(site)
+            sitewriter.close()
+    
+                
+    

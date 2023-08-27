@@ -31,6 +31,5 @@ pip3 install -r requirements.txt
 ## Deployment
 
 To deploy this bot  
-    1. Go to https://discord.com/developers/applications    
-    2. <img src="">
+    1. Go to https://youtu.be/8V7iTweKKM8?t=75
 
