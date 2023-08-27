@@ -13,7 +13,7 @@ async def send_message(message, user_message, is_private):
         response = responses.handle_response(user_message)
         await message.author.send(response) if is_private else await message.channel.send(response)
     except Exception as e:
-        print(e)
+        func.debug("Error: {e}", "True")
 def run_discord_bot():
     TOKEN = constants.token
     intents = discord.Intents.default()
@@ -33,6 +33,7 @@ def run_discord_bot():
         username = str(message.author)
         user_message = str(message.content)
         channel = str(message.channel)
+        func.debug(f"Message log: {username},{channel},{user_message}", "true")
         # print(f"{username} said {user_message} {channel}")
         try:
             if user_message[0] == constants.command_prefix:
@@ -42,7 +43,10 @@ def run_discord_bot():
                 pass
                 # await send_message(message, user_message, is_private=False)
         except IndexError:
+            func.debug(f"Error: INDEXERROR", "true")
             pass
+        except Exception as error:
+            func.debug(f"Error: {error}", "true")
     @tasks.loop()
     async def status_task() -> None:
         await client.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.watching, name=str(func.playerOnlineCounter())+" Players"))
