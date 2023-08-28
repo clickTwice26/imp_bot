@@ -1,6 +1,8 @@
 
 # DISCORD BOT: Sends active players name of a minecraft server
-This bot sends all active player names in a specific discord channel.
+This bot sends all active player names in a specific discord channel and updates its status message with the player count of a Minecraft server.
+
+
 
 
 
