@@ -111,6 +111,7 @@ def firsttimetokenchecker():
             with open(".env", "w") as tokenwriter:
                 tokenwriter.write(f"TOKEN = {token}")
                 tokenwriter.close()
+            sys.exit("Token added|Please run this file again")
         except:
             debug("Token Not found", "true")
 
