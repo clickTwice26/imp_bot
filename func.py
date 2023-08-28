@@ -56,9 +56,11 @@ def playerOnline():
     test_data = json.loads(data.text)
     debug(test_data, "false")
     # print(type(test_data))
-
-    total_online_players = test_data["players"]["online"]
-    total_number = total_online_players
+    try:
+        total_online_players = test_data["players"]["online"]
+        total_number = total_online_players
+    except Exception as error:
+        debug("Error: {}".format(error), "true")
     
     if total_online_players > 0:
 
